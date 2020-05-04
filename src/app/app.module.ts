@@ -4,13 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// angular imports are now part of it's own module, keeping the code clean. import into the imports: [] below
+import { MaterialModule } from './material/material.module';
 
 
-import { MatButtonModule} from '@angular/material/button';
-//import { MatMenuModule } from '@angular/material/menu';
-//import { MatToolbarModule } from '@angular/material/toolbar';
-//import { MatIconModule } from '@angular/material/icon';
-//import { MatCardModule } from '@angular/material/card';
  
 
 @NgModule({
@@ -21,7 +18,7 @@ import { MatButtonModule} from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
