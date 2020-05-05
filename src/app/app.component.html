@@ -52,3 +52,15 @@
 icon summary - https://material.io/resources/icons/?style=baseline -->
 
 <mat-icon color="accent">eco</mat-icon>
+
+<div>
+  <span matBadge="5" matBadgePosition="below before" matBadgeSize="medium" matBadgeColor="warn" matBadgeOverlap="false"> Notifications</span>
+  <!-- other positions are below after and above before, standard is above after
+       other sizes are small and large; medium is default 
+       other colors are primary and accent 
+       matBadgeOverlap determines if the badge sits on top of the last char in the field --> 
+</div>
+<div>     
+  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0"> Defined via property binding </span>     
+  <!-- finally property binding to set the badge notification and whether to conditionally render it (>0) via the badge hidden-->
+</div>
