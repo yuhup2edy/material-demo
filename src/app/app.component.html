@@ -51,16 +51,56 @@
 <!-- before using the icons, make sure you have a reference to the fonts / icons in the index.html file 
 icon summary - https://material.io/resources/icons/?style=baseline -->
 
-<mat-icon color="accent">eco</mat-icon>
+<!-- <mat-icon color="accent">eco</mat-icon>
 
 <div>
-  <span matBadge="5" matBadgePosition="below before" matBadgeSize="medium" matBadgeColor="warn" matBadgeOverlap="false"> Notifications</span>
-  <!-- other positions are below after and above before, standard is above after
+  <span matBadge="5" matBadgeColor = "warn" matBadgeOverlap="false" matBadgePosition = "above after"> 
+        Notifications
+  </span> -->
+  <!-- 
+    matBadgePosition="below before" 
+        matBadgeSize="medium" 
+        matBadgeColor="warn" 
+        matBadgeOverlap="false"> 
+        
+      other positions are below after and above before, standard is above after
        other sizes are small and large; medium is default 
        other colors are primary and accent 
        matBadgeOverlap determines if the badge sits on top of the last char in the field --> 
-</div>
+<!-- </div>
 <div>     
-  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0"> Defined via property binding </span>     
-  <!-- finally property binding to set the badge notification and whether to conditionally render it (>0) via the badge hidden-->
-</div>
+   <span [matBadge]="notifications" [matBadgeHidden]="notifications === '0'"> Defined via property binding </span>     
+  finally property binding to set the badge notification and whether to conditionally render it (>0) via the badge hidden
+</div> -->
+
+<!-- <mat-progress-spinner color="warn" value="80"></mat-progress-spinner> -->
+<!-- values can be 0 to 100 ; this is a determinate spinner -->
+
+<!-- <mat-spinner *ngIf="showSpinner"></mat-spinner>
+<button type=button (click)="loadData();"> Load Me </button>
+
+<mat-progress-bar color="warn" bufferValue = "25" mode="query" value="30"></mat-progress-bar> -->
+
+<!-- <mat-toolbar class="navbar" color="primary"> 
+<div> Realogy Title - Resource Access Request</div>
+<div>
+  <span> Home</span>
+  <span> About</span>
+  <span> Service</span>
+ </div>
+ </mat-toolbar> -->
+
+ <mat-sidenav-container>
+   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="log('opened')" (closed)="log('closed')"> Main Content </mat-sidenav>
+   <mat-sidenav-content> Side Content
+   <button type = "button" (click)="opened=!opened"> Toggle Me </button>
+   <button type = "button" (click)="sidenav.open()"> Open </button>
+   <button type = "button" (click)="sidenav.close()"> Close </button>
+   <button type = "button" (click)="sidenav.toggle()"> TOGGLE </button>
+ 
+  </mat-sidenav-content>
+ </mat-sidenav-container>
+
+ <!-- mode = over(default), push and side 
+  opened and closed are listeners and call log with text to be logged -->
+  
