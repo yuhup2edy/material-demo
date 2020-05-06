@@ -84,8 +84,13 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 <mat-toolbar class="navbar" color="primary"> 
 <div> Realogy Title Group - HelpDesk System</div>
 <div>
-  <span> Home</span>
-  <span> About</span>
+  <span>
+    <mat-icon matListIcon> home </mat-icon> 
+    Home 
+  </span>
+  <span> 
+    About
+</span>
   <span> Service</span>
  </div>
  </mat-toolbar>  
@@ -104,7 +109,7 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
  <!-- mode = over(default), push and side 
   opened and closed are listeners and call log with text to be logged -->
   
-<mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+<!-- <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
   <button mat-menu-item> Front End</button>
   <button mat-menu-item> Backend End</button>
   <button mat-menu-item> Services</button>
@@ -121,7 +126,7 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 </mat-menu>
 
 <mat-menu #lazyMenu="matMenu">
-  <ng-template matMenuContent let-name="name" let-hobby="hobby"> <!-- name is from the matMenuTriggerData below to dynamically render-->
+  <ng-template matMenuContent let-name="name" let-hobby="hobby">  name is from the matMenuTriggerData below to dynamically render
     <button mat-menu-item> Login </button>
     <button mat-menu-item> I like {{hobby}} </button>
     <button mat-menu-item> Logout {{name}}</button>
@@ -134,5 +139,84 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 <button mat-raised-button 
         [matMenuTriggerFor]="lazyMenu"
         [matMenuTriggerData]="{name : 'New York', hobby : 'CRM'}"> TMP WW</button>
-  
+-->
 
+<!-- <mat-list dense>  the dense property reduces the size of text
+  <mat-list-item> Items 1</mat-list-item>
+  <mat-list-item> Items 2</mat-list-item>
+  <mat-list-item> Items 3</mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <a mat-list-item href='#'> Home</a>
+  <a mat-list-item href='#'> About</a>
+  <a mat-list-item href='#'> Services</a>
+</mat-nav-list> -->
+
+<!-- <mat-list>
+  <mat-list-item>
+    <mat-icon matListIcon> home </mat-icon>
+    <h3 matLine> Heading</h3>
+    <p matLine>  Line Item</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListIcon> folder </mat-icon>
+    <h3 matLine> Heading</h3>
+    <p matLine>  Folder</p>
+  </mat-list-item>
+</mat-list> -->
+
+<!-- specify rowspan = "2" and colspan = "2" to see how the row/col span each other 
+     other values are rowheight = 100px or "2:1" for ratio of row to column and option 3 below -->
+<!-- <mat-grid-list cols="2" rowHeight="fit" style="height:200px" gutterSize=>
+  <mat-grid-tile> Tile 1</mat-grid-tile>
+  <mat-grid-tile> Tile 2</mat-grid-tile>
+  <mat-grid-tile > Tile 3</mat-grid-tile>
+  <mat-grid-tile> Tile 4</mat-grid-tile>
+</mat-grid-list> -->
+
+
+<!-- <mat-accordion multi="true" hideToggle>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Realogy Title 101
+    </mat-panel-title>
+    <mat-panel-description>
+      Client Server Team
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p> This is the team that provides support to all your office 365 issues</p>
+  <mat-action-row> 
+  <button mat-raised-button> More Info !</button>
+</mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Realogy Title 201
+    </mat-panel-title>
+    <mat-panel-description>
+      Client Server DevOps Team
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p> This is the team that provides support to all your deployment issues</p>
+  <mat-action-row> 
+  <button mat-raised-button> More Info !</button>
+</mat-action-row>
+</mat-expansion-panel>
+</mat-accordion> -->
+
+<mat-card>
+  <mat-card-title>
+    Sample Card 
+  </mat-card-title>
+  <mat-card-content>
+    This card contain specific information about Realogy Title
+  </mat-card-content>
+  <mat-card-actions align="center">
+    <button type="button" mat-raised-button> Login</button>
+  </mat-card-actions>
+</mat-card>

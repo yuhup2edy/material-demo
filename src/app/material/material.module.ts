@@ -9,6 +9,12 @@ import { MatProgressBarModule }           from '@angular/material/progress-bar';
 import { MatToolbarModule }               from '@angular/material/toolbar';
 import { MatSidenavModule }               from '@angular/material/sidenav';
 import { MatMenuModule }                  from '@angular/material/menu';  
+import { MatListModule }                  from '@angular/material/list';
+import { MatDividerModule }               from '@angular/material/divider';
+import { MatGridListModule }              from '@angular/material/grid-list';
+import { MatExpansionModule }             from '@angular/material/expansion';
+import { MatCardModule }                  from '@angular/material/card';
+
 
 //import { MatMenuModule } from '@angular/material/menu';
 //import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,7 +28,12 @@ const Material = [ MatButtonModule,
                    MatProgressBarModule,
                    MatToolbarModule,
                    MatSidenavModule,
-                   MatMenuModule ] 
+                   MatMenuModule,
+                   MatListModule,
+                   MatDividerModule,
+                   MatGridListModule, 
+                   MatExpansionModule, 
+                   MatCardModule] 
 
 @NgModule({
   imports: [Material],
