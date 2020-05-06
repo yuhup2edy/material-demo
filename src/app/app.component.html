@@ -81,16 +81,16 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 
 <mat-progress-bar color="warn" bufferValue = "25" mode="query" value="30"></mat-progress-bar> -->
 
-<!-- <mat-toolbar class="navbar" color="primary"> 
-<div> Realogy Title - Resource Access Request</div>
+<mat-toolbar class="navbar" color="primary"> 
+<div> Realogy Title Group - HelpDesk System</div>
 <div>
   <span> Home</span>
   <span> About</span>
   <span> Service</span>
  </div>
- </mat-toolbar> -->
+ </mat-toolbar>  
 
- <mat-sidenav-container>
+ <!-- <mat-sidenav-container>
    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="log('opened')" (closed)="log('closed')"> Main Content </mat-sidenav>
    <mat-sidenav-content> Side Content
    <button type = "button" (click)="opened=!opened"> Toggle Me </button>
@@ -99,8 +99,40 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
    <button type = "button" (click)="sidenav.toggle()"> TOGGLE </button>
  
   </mat-sidenav-content>
- </mat-sidenav-container>
+ </mat-sidenav-container> -->
 
  <!-- mode = over(default), push and side 
   opened and closed are listeners and call log with text to be logged -->
   
+<mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item> Front End</button>
+  <button mat-menu-item> Backend End</button>
+  <button mat-menu-item> Services</button>
+  <button mat-menu-item> Middle Ware</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu"> Cloud</button>
+</mat-menu>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenu"> Open Menu </button>
+
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item> AWS</button>
+  <button mat-menu-item> Google Cloud</button>
+  <button mat-menu-item> Azure</button>
+</mat-menu>
+
+<mat-menu #lazyMenu="matMenu">
+  <ng-template matMenuContent let-name="name" let-hobby="hobby"> <!-- name is from the matMenuTriggerData below to dynamically render-->
+    <button mat-menu-item> Login </button>
+    <button mat-menu-item> I like {{hobby}} </button>
+    <button mat-menu-item> Logout {{name}}</button>
+  </ng-template>
+</mat-menu>
+
+<button mat-raised-button 
+        [matMenuTriggerFor]="lazyMenu"
+        [matMenuTriggerData]="{name:'Madison', hobby : 'Transition'}"> Realogy</button>
+<button mat-raised-button 
+        [matMenuTriggerFor]="lazyMenu"
+        [matMenuTriggerData]="{name : 'New York', hobby : 'CRM'}"> TMP WW</button>
+  
+
