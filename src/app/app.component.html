@@ -209,7 +209,7 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 </mat-expansion-panel>
 </mat-accordion> -->
 
-<mat-card>
+<!-- <mat-card>
   <mat-card-title>
     Sample Card 
   </mat-card-title>
@@ -219,4 +219,28 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
   <mat-card-actions align="center">
     <button type="button" mat-raised-button> Login</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+<!-- <mat-tab-group #matTab (selectedTabChange)="log(matTab.selectedIndex)">
+  <mat-tab label="Angular">Angular Content</mat-tab>
+  <mat-tab label="React">React Content</mat-tab>
+  <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group> -->
+
+<!-- use vertical stepper ; optional tag and completed tag-->
+<mat-horizontal-stepper linear>
+  <mat-step label="Billing Address" completed=true>
+    <p> Enter Billing Address</p>
+  </mat-step>
+  <mat-step label="Shipping Address" completed = false optional>
+    <p> Enter Shipping Address</p>
+    <div>
+      <button mat-button matStepperPrevious> Previous </button>
+      <button mat-button matStepperNext> Next </button>
+    </div>
+  </mat-step>
+  <mat-step label="Confirm Order" competed=false>
+    <p> Place Order</p>
+  </mat-step>
+</mat-horizontal-stepper>
+
