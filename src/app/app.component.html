@@ -244,3 +244,29 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
   </mat-step>
 </mat-horizontal-stepper>
 
+
+<!-- floatLabel = never / always, hideRequiredMarker appearance as legacy, outline, standard and fill -->
+<mat-form-field floatLabel="auto" appearance="outline" color="accent">
+  <mat-label> Name </mat-label>
+  <input matInput required > 
+  <mat-hint align="end"> Min 6 char</mat-hint>
+  </mat-form-field>
+
+  <div> 
+  <mat-form-field appearance="outline" color="accent" >
+    <mat-label> Topic </mat-label>
+    <mat-select required [(value)]="selectedValue" multiple> 
+      <mat-option> None</mat-option> 
+      <mat-optgroup label="Web">
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Mobile">
+      <mat-option value="iOS"> Apple</mat-option>
+      <mat-option value="Java"> Android</mat-option>
+    </mat-optgroup>
+    </mat-select>
+    <mat-hint align="end"> Select the course</mat-hint>
+  </mat-form-field>
+</div>
