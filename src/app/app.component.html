@@ -246,9 +246,17 @@ icon summary - https://material.io/resources/icons/?style=baseline -->
 
 
 <!-- floatLabel = never / always, hideRequiredMarker appearance as legacy, outline, standard and fill -->
+<!-- can either use object option or simply a string array from .ts file for auto complete; use options.name if using json object-->
+<!-- displayWith returns the actual object's value back to view -->
+
 <mat-form-field floatLabel="auto" appearance="outline" color="accent">
   <mat-label> Name </mat-label>
-  <input matInput required > 
+  <input type="text" matInput required [matAutocomplete]="auto" [formControl]="myControl" />
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+    {{option}}
+  </mat-option>
+  </mat-autocomplete> 
   <mat-hint align="end"> Min 6 char</mat-hint>
   </mat-form-field>
 
