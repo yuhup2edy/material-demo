@@ -10,6 +10,17 @@ import {map,startWith} from 'rxjs/operators';
 })
 export class AppComponent implements OnInit{
   title = 'material-demo';
+  minDate = new Date();
+  maxDate = new Date(2020,6,7); 
+      // remember month starts from 0, this is july being shown here.
+      // also remember that for < 2 digits of month and year, do not add the leading zero. 
+  
+  dateFilter = date => 
+  {
+    const day = date.getDay();
+    return day !=0 && day != 6;
+  }
+
   notifications = "1";
   showSpinner = false;
   opened = false;

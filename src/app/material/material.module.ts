@@ -20,11 +20,11 @@ import { MatFormFieldModule }             from '@angular/material/form-field';
 import { MatInputModule }                 from '@angular/material/input';
 import { MatSelectModule }                from '@angular/material/select';
 import { MatAutocompleteModule }          from '@angular/material/autocomplete';
-
-
-//import { MatMenuModule } from '@angular/material/menu';
-//import { MatToolbarModule } from '@angular/material/toolbar';
-//import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule }              from '@angular/material/checkbox';
+import { MatRadioModule }                 from '@angular/material/radio';
+import { MatDatepickerModule }            from '@angular/material/datepicker';
+import { MatNativeDateModule }            from '@angular/material/core'; // important change on where to import from
+import { MatTooltipModule }               from '@angular/material/tooltip';
 
 const Material = 
 [ 
@@ -47,7 +47,12 @@ const Material =
                    MatFormFieldModule,
                    MatInputModule,
                    MatSelectModule,
-                   MatAutocompleteModule
+                   MatAutocompleteModule,
+                   MatCheckboxModule,
+                   MatRadioModule,
+                   MatDatepickerModule,
+                   MatNativeDateModule,
+                   MatTooltipModule
 ]
 
 @NgModule({
