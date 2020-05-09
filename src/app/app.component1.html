@@ -1,0 +1,315 @@
+<!-- 
+<button mat-button> Regular </button>
+<button color="primary" mat-raised-button> Primary</button>
+<button color="accent"  mat-raised-button> Accent</button>
+<button color="warn"    mat-raised-button> Warn</button>
+
+<button color="primary" mat-button> Primary</button>
+<button color="accent"  mat-button> Accent</button>
+<button color="warn"    mat-button disableRipple> Warn</button>
+
+<button mat-flat-button> Flat </button>
+<button mat-stroked-button> Stroked </button>
+<button mat-icon-button> Icon </button>
+<button mat-fab> Fab </button>
+<button mat-mini-fab> Mini Fab </button> 
+
+<div class="mat-display-4"> Display Code push request  4</div>
+<div class="mat-display-3"> Display Code push request  3</div>
+<div class="mat-display-2"> Display Code push request  2</div>
+<div class="mat-display-1"> Display Code push request  1</div>
+
+
+<div class="mat-headline"> Headline,H1</div>
+<div class="mat-title"> Title,H2</div>
+<div class="mat-subheading-2"> Subheading - 2, H3</div>
+<div class="mat-subheading-1"> Subheading - 1, H4</div>
+
+<div class="mat-body-1"> This is body text</div>
+<div class="mat-body-2"> This is bold body text</div>
+<div class="mat-caption"> This is caption text</div>
+
+<div class="mat-typography">
+  <h1> this is heading H1</h1>
+  <h2> this is heading H2</h2>
+  <h3> this is heading H3</h3>
+  <h4> this is heading H4</h4>
+</div> -->
+
+<!-- <mat-button-toggle #toggleBtn checked disableRipple disabled> Toggle Me </mat-button-toggle>
+{{toggleBtn.checked}}
+
+<div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="angular"> Angular </mat-button-toggle> 
+    <mat-button-toggle value="typescript"> TypeScript </mat-button-toggle> 
+    <mat-button-toggle value="json"> JSON </mat-button-toggle> 
+</mat-button-toggle-group>
+{{toggleGroup.value}}
+</div> -->
+
+<!-- before using the icons, make sure you have a reference to the fonts / icons in the index.html file 
+icon summary - https://material.io/resources/icons/?style=baseline -->
+
+<!-- <mat-icon color="accent">eco</mat-icon>
+
+<div>
+  <span matBadge="5" matBadgeColor = "warn" matBadgeOverlap="false" matBadgePosition = "above after"> 
+        Notifications
+  </span> -->
+  <!-- 
+    matBadgePosition="below before" 
+        matBadgeSize="medium" 
+        matBadgeColor="warn" 
+        matBadgeOverlap="false"> 
+        
+      other positions are below after and above before, standard is above after
+       other sizes are small and large; medium is default 
+       other colors are primary and accent 
+       matBadgeOverlap determines if the badge sits on top of the last char in the field --> 
+<!-- </div>
+<div>     
+   <span [matBadge]="notifications" [matBadgeHidden]="notifications === '0'"> Defined via property binding </span>     
+  finally property binding to set the badge notification and whether to conditionally render it (>0) via the badge hidden
+</div> -->
+
+<!-- <mat-progress-spinner color="warn" value="80"></mat-progress-spinner> -->
+<!-- values can be 0 to 100 ; this is a determinate spinner -->
+
+<!-- <mat-spinner *ngIf="showSpinner"></mat-spinner>
+<button type=button (click)="loadData();"> Load Me </button>
+
+<mat-progress-bar color="warn" bufferValue = "25" mode="query" value="30"></mat-progress-bar> -->
+
+<mat-toolbar class="navbar" color="primary"> 
+<div> Realogy Title Group - HelpDesk System</div>
+<div>
+  <span>
+    <mat-icon matListIcon> home </mat-icon> 
+    Home 
+  </span>
+  <span> 
+    About
+</span>
+  <span> Service</span>
+ </div>
+ </mat-toolbar>  
+
+ <!-- <mat-sidenav-container>
+   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="log('opened')" (closed)="log('closed')"> Main Content </mat-sidenav>
+   <mat-sidenav-content> Side Content
+   <button type = "button" (click)="opened=!opened"> Toggle Me </button>
+   <button type = "button" (click)="sidenav.open()"> Open </button>
+   <button type = "button" (click)="sidenav.close()"> Close </button>
+   <button type = "button" (click)="sidenav.toggle()"> TOGGLE </button>
+ 
+  </mat-sidenav-content>
+ </mat-sidenav-container> -->
+
+ <!-- mode = over(default), push and side 
+  opened and closed are listeners and call log with text to be logged -->
+  
+<!-- <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item> Front End</button>
+  <button mat-menu-item> Backend End</button>
+  <button mat-menu-item> Services</button>
+  <button mat-menu-item> Middle Ware</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu"> Cloud</button>
+</mat-menu>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenu"> Open Menu </button>
+
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item> AWS</button>
+  <button mat-menu-item> Google Cloud</button>
+  <button mat-menu-item> Azure</button>
+</mat-menu>
+
+<mat-menu #lazyMenu="matMenu">
+  <ng-template matMenuContent let-name="name" let-hobby="hobby">  name is from the matMenuTriggerData below to dynamically render
+    <button mat-menu-item> Login </button>
+    <button mat-menu-item> I like {{hobby}} </button>
+    <button mat-menu-item> Logout {{name}}</button>
+  </ng-template>
+</mat-menu>
+
+<button mat-raised-button 
+        [matMenuTriggerFor]="lazyMenu"
+        [matMenuTriggerData]="{name:'Madison', hobby : 'Transition'}"> Realogy</button>
+<button mat-raised-button 
+        [matMenuTriggerFor]="lazyMenu"
+        [matMenuTriggerData]="{name : 'New York', hobby : 'CRM'}"> TMP WW</button>
+-->
+
+<!-- <mat-list dense>  the dense property reduces the size of text
+  <mat-list-item> Items 1</mat-list-item>
+  <mat-list-item> Items 2</mat-list-item>
+  <mat-list-item> Items 3</mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <a mat-list-item href='#'> Home</a>
+  <a mat-list-item href='#'> About</a>
+  <a mat-list-item href='#'> Services</a>
+</mat-nav-list> -->
+
+<!-- <mat-list>
+  <mat-list-item>
+    <mat-icon matListIcon> home </mat-icon>
+    <h3 matLine> Heading</h3>
+    <p matLine>  Line Item</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListIcon> folder </mat-icon>
+    <h3 matLine> Heading</h3>
+    <p matLine>  Folder</p>
+  </mat-list-item>
+</mat-list> -->
+
+<!-- specify rowspan = "2" and colspan = "2" to see how the row/col span each other 
+     other values are rowheight = 100px or "2:1" for ratio of row to column and option 3 below -->
+<!-- <mat-grid-list cols="2" rowHeight="fit" style="height:200px" gutterSize=>
+  <mat-grid-tile> Tile 1</mat-grid-tile>
+  <mat-grid-tile> Tile 2</mat-grid-tile>
+  <mat-grid-tile > Tile 3</mat-grid-tile>
+  <mat-grid-tile> Tile 4</mat-grid-tile>
+</mat-grid-list> -->
+
+
+<!-- <mat-accordion multi="true" hideToggle>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Realogy Title 101
+    </mat-panel-title>
+    <mat-panel-description>
+      Client Server Team
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p> This is the team that provides support to all your office 365 issues</p>
+  <mat-action-row> 
+  <button mat-raised-button> More Info !</button>
+</mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Realogy Title 201
+    </mat-panel-title>
+    <mat-panel-description>
+      Client Server DevOps Team
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p> This is the team that provides support to all your deployment issues</p>
+  <mat-action-row> 
+  <button mat-raised-button> More Info !</button>
+</mat-action-row>
+</mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- <mat-card>
+  <mat-card-title>
+    Sample Card 
+  </mat-card-title>
+  <mat-card-content>
+    This card contain specific information about Realogy Title
+  </mat-card-content>
+  <mat-card-actions align="center">
+    <button type="button" mat-raised-button> Login</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<!-- <mat-tab-group #matTab (selectedTabChange)="log(matTab.selectedIndex)">
+  <mat-tab label="Angular">Angular Content</mat-tab>
+  <mat-tab label="React">React Content</mat-tab>
+  <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group> -->
+
+<!-- use vertical stepper ; optional tag and completed tag-->
+<!-- <mat-horizontal-stepper linear>
+  <mat-step label="Billing Address" completed=true>
+    <p> Enter Billing Address</p>
+  </mat-step>
+  <mat-step label="Shipping Address" completed = false optional>
+    <p> Enter Shipping Address</p>
+    <div>
+      <button mat-button matStepperPrevious> Previous </button>
+      <button mat-button matStepperNext> Next </button>
+    </div>
+  </mat-step>
+  <mat-step label="Confirm Order" competed=false>
+    <p> Place Order</p>
+  </mat-step>
+</mat-horizontal-stepper> -->
+
+
+<!-- floatLabel = never / always, hideRequiredMarker appearance as legacy, outline, standard and fill -->
+<!-- can either use object option or simply a string array from .ts file for auto complete; use options.name if using json object-->
+<!-- displayWith returns the actual object's value back to view -->
+
+<mat-form-field floatLabel="auto" appearance="outline" color="accent">
+  <mat-label> Name </mat-label>
+  <input type="text" matInput required [matAutocomplete]="auto" [formControl]="myControl" />
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+    {{option}}
+  </mat-option>
+  </mat-autocomplete> 
+  <mat-hint align="end"> Min 6 char</mat-hint>
+  </mat-form-field>
+
+  <div> 
+  <mat-form-field appearance="outline" color="accent" >
+    <mat-label> Topic </mat-label>
+    <mat-select required [(value)]="selectedValue" multiple> 
+      <mat-option> None</mat-option> 
+      <mat-optgroup label="Web">
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-optgroup>
+    <mat-optgroup label="Mobile">
+      <mat-option value="iOS"> Apple</mat-option>
+      <mat-option value="Java"> Android</mat-option>
+    </mat-optgroup>
+    </mat-select>
+    <mat-hint align="end"> Select the course</mat-hint>
+  </mat-form-field>
+</div>
+
+<!-- <mat-checkbox labelPosition="before" color="primary"> 
+  Subscribe
+</mat-checkbox>
+<br><br> -->
+<mat-radio-group color="primary"> 
+  <mat-radio-button value="Angular"> Angular </mat-radio-button>
+  <mat-radio-button value="React">React</mat-radio-button>
+  <mat-radio-button value="Vue" color="warn">Vue</mat-radio-button>
+</mat-radio-group>
+
+<br> <br>
+
+<!-- matSuffix is for icon to be added at end of date picker-->
+<!-- startView = year , multi-year on the max-datepicker form element -->
+<!--<mat-datepicker #picker startView="year"></mat-datepicker> -->
+
+<mat-form-field appearance="outline" color="warn">
+  <mat-label>Choose a date</mat-label>
+ <!-- <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate"> -->
+ <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter"> 
+ <!-- dateFilter does not allow you to select weekends -->
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> 
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-hint align="end"> Select need by date</mat-hint>
+</mat-form-field>
+
+<br><br>
+
+<!-- <button mat-raised-button 
+        matTooltip="Hey There"
+        matTooltipPosition="after"
+        matTooltipShowDelay="2000"
+        matTooltipHideDelay="2000"> Welcome </button>  -->
+<!-- before top and below are other options and will adjust based on spacing available on browser-->
