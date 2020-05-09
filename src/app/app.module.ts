@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, CustomSnackBarComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // angular imports are now part of it's own module, keeping the code clean. import into the imports: [] below
 import { MaterialModule } from './material/material.module';
@@ -14,8 +14,10 @@ import { LeftpanelComponent } from './leftpanel/leftpanel.component';
   declarations: [
     AppComponent,
     RightpanelComponent,
-    LeftpanelComponent
+    LeftpanelComponent,
+    CustomSnackBarComponent
   ],
+  entryComponents :[CustomSnackBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

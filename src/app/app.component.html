@@ -12,16 +12,38 @@
  </div>
  </mat-toolbar>  
 
- <div class="mat-typography">
-  <h1> Resource Access Request (RAR) </h1>
- </div>
+ <div class="mat-title" align="center"> Resource Access Request </div>
+
 <div>
 <span>
   <mat-form-field floatLabel="auto" appearance="outline" color="primary">
     <mat-label> Requester Id </mat-label>
     <input type="text" matInput required [formControl]="myControl" />
-    <mat-hint align="end"> Enter ID</mat-hint>
+    <mat-hint align="end"> Enter login/ssnet ID</mat-hint>
     </mat-form-field>
 </span>
+<span>
+  <mat-form-field appearance="outline" color="primary" >
+    <mat-label> Role Requested </mat-label>
+    <mat-select required #matSelect> 
+      <mat-option value="admin">TFS Admin </mat-option>
+      <mat-option value="reader">TFS Reader </mat-option>
+      <mat-option value="build admin">TFS Build Admin </mat-option>
+      <mat-option value="branch delete">TFS Branch Delete </mat-option>
+      <mat-option value="revoke">TFS Revoke Access </mat-option>
+      <mat-option default value="contributor">TFS Contributor </mat-option>
+      <mat-option value="others">Others </mat-option>
+    </mat-select>
+    <mat-hint align="end">Enter preferred role </mat-hint>
+  </mat-form-field>
+</span>
+<span>
+  <button mat-raised-button (click)="showSnackBar('Item Deleted','Dismiss')"> Open Snack Bar</button>
+</span>
+
+<span>
+  <button mat-raised-button (click)="showCustomSnackBar()"> Custom Snack Bar</button>
+</span>
+
 </div>
 
