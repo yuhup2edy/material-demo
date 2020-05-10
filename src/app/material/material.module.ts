@@ -28,6 +28,9 @@ import { MatTooltipModule }               from '@angular/material/tooltip';
 import { MatSnackBarModule }              from '@angular/material/snack-bar';
 import { MatDialogModule }                from '@angular/material/dialog';
 import { MatTableModule }                 from '@angular/material/table';
+import { MatSortModule }                  from '@angular/material/sort';
+import { MatPaginatorModule }             from '@angular/material/paginator';
+
 
 const Material = 
 [ 
@@ -58,7 +61,9 @@ const Material =
                    MatTooltipModule,
                    MatSnackBarModule,
                    MatDialogModule,
-                   MatTableModule
+                   MatTableModule, // used for filtering the data table
+                   MatSortModule,   // used for sorting   the data table, use ngAfterInit in the TS file - important
+                   MatPaginatorModule
 ]
 
 @NgModule({

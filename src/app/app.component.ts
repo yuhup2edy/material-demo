@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core'; //view child is for table sorting 
 import { FormControl} from '@angular/forms';
 import { Observable} from 'rxjs';
 import {map,startWith} from 'rxjs/operators';
@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { componentFactoryName } from '@angular/compiler';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator} from '@angular/material/paginator';
 
 export interface PeriodicElement {
   name: string;
@@ -33,14 +35,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'material-demo';
+  numbers = [];
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   //dataSource = ELEMENT_DATA; ==> only for standar display
   // when you need sorting, filtering, pagination etc use the instance of the mat table data source 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   
+  @ViewChild(MatSort) sort1 : MatSort; //remember to use sort in the afterview init becuase child as to be loaded
+  @ViewChild(MatPaginator) paginate1 : MatPaginator; // this is to paginate the table; also position on ngAgterviewInit
+
+
   displayRow(row)
   {
     console.log(row.position);
@@ -52,7 +59,12 @@ export class AppComponent implements OnInit{
   }
 
   constructor(private snackBar : MatSnackBar, public dialog : MatDialog)
-  {}
+  {
+    for (let i=0;i<1000;i++)
+    {
+      this.numbers.push(i);
+    }
+  }
  
   openDialog()
   {
@@ -122,6 +134,13 @@ ngOnInit()
     startWith(''),
     map(value => this._filter(value))
   );
+  
+}
+
+ngAfterViewInit()
+{
+  this.dataSource.sort = this.sort1 ; // takes care of sorting; this.sort1 comes from the ViewChild  
+  this.dataSource.paginator = this.paginate1;   // takes care of the pagination
 }
 
 private _filter(value : string) : string[]

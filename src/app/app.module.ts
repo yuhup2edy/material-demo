@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RightpanelComponent } from './rightpanel/rightpanel.component';
 import { LeftpanelComponent } from './leftpanel/leftpanel.component';
-import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component'
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -26,8 +27,9 @@ import { DialogExampleComponent } from './dialog-example/dialog-example.componen
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
-  ],
+    MaterialModule,
+    ScrollingModule
+ ],
   providers: [],
   bootstrap: [AppComponent]
 })
