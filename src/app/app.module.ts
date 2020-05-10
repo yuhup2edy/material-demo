@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RightpanelComponent } from './rightpanel/rightpanel.component';
 import { LeftpanelComponent } from './leftpanel/leftpanel.component';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 
 @NgModule({
@@ -15,9 +16,10 @@ import { LeftpanelComponent } from './leftpanel/leftpanel.component';
     AppComponent,
     RightpanelComponent,
     LeftpanelComponent,
-    CustomSnackBarComponent
+    CustomSnackBarComponent,
+    DialogExampleComponent
   ],
-  entryComponents :[CustomSnackBarComponent],
+  entryComponents :[CustomSnackBarComponent, DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

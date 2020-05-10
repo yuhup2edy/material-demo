@@ -1,0 +1,7 @@
+<h2 mat-dialog-title> Session Timeout </h2>
+<mat-dialog-content> Hi {{data.name}} You are about to be logged out due to inactivity</mat-dialog-content>
+<mat-dialog-actions> 
+    <button mat-button mat-dialog-close mat-dialog-close="true"> Keep me active</button>
+    <button mat-button mat-dialog-close mat-dialog-close="false"> Log me out</button>
+</mat-dialog-actions>
+<!-- use the MAT_DIALOG_DATA to inject into constructor and pass data as second arg for the open dialog method-->
