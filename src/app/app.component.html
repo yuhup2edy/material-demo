@@ -39,7 +39,7 @@
     <mat-label> Requester Name </mat-label>
     <input type="text" matInput placeholder='Ex.Sriram' [formControl]="nameControl" 
             [errorStateMatcher]="matcher" spellcheck="false"/>
-      <mat-error *ngIf="nameControl.hasError('maxlength')">
+      <mat-error *ngIf="nameControl.hasError('maxlength')" color="warn">
       Cannot be greater than 10 char
       </mat-error>
       <mat-hint align="end"> Enter Name</mat-hint>
