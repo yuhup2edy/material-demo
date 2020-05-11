@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core'; //view child is for table sorting 
-import { FormControl} from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core'; 
 import { Observable} from 'rxjs';
 import {map,startWith} from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -29,6 +30,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -126,7 +134,19 @@ export class AppComponent implements OnInit, AfterViewInit{
   ];
 filteredOptions : Observable<string[]>;
 
-myControl = new FormControl();
+//myControl = new FormControl(['',[Validators.required, Validators.minLength(6),Validators.pattern('^[a-zA-Z]+$')]]);
+  
+myControl = new FormControl('', [
+  Validators.required,
+  Validators.minLength(6),
+  Validators.pattern('^[a-zA-Z]+$')
+]);
+
+nameControl = new FormControl('', [
+  Validators.maxLength(10),
+  //Validators.pattern('^[a-zA-Z]+$')
+]);
+
 
 ngOnInit()
 {
@@ -169,6 +189,7 @@ displayFn(subject)
   return subject ? subject.name : undefined;
 }
 
+matcher = new MyErrorStateMatcher();
 }
 
 @Component(

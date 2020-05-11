@@ -18,11 +18,34 @@
 <span>
   <mat-form-field floatLabel="auto" appearance="outline" color="primary">
     <mat-label> Requester Id </mat-label>
-    <input type="text" matInput required [formControl]="myControl" />
-    <mat-hint align="end"> Enter login/ssnet ID</mat-hint>
+    <input type="text" matInput required [formControl]="myControl" 
+            [errorStateMatcher]="matcher" spellcheck="false"/>
+      <mat-error *ngIf="myControl.hasError('required')">
+      Requester Id is <strong> mandatory </strong> field
+      </mat-error>
+      <mat-error *ngIf="myControl.hasError('minlength')">
+      Minimum length of 6 characters
+      </mat-error>
+      <mat-error *ngIf="myControl.hasError('pattern')">
+        Requester Id is <strong> alphabetic </strong> field
+        </mat-error>
+        
+      <mat-hint align="end"> Enter login/ssnet ID</mat-hint>
     </mat-form-field>
 </span>
- 
+
+<span>
+  <mat-form-field floatLabel="auto" appearance="outline" color="primary">
+    <mat-label> Requester Name </mat-label>
+    <input type="text" matInput placeholder='Ex.Sriram' [formControl]="nameControl" 
+            [errorStateMatcher]="matcher" spellcheck="false"/>
+      <mat-error *ngIf="nameControl.hasError('maxlength')">
+      Cannot be greater than 10 char
+      </mat-error>
+      <mat-hint align="end"> Enter Name</mat-hint>
+    </mat-form-field>
+</span>
+
 <span>
   <mat-form-field appearance="outline" color="primary" >
     <mat-label> App Info</mat-label>
@@ -131,8 +154,8 @@
 </div>
 
 
-<cdk-virtual-scroll-viewport itemSize="100" class="container">
+<!-- <cdk-virtual-scroll-viewport itemSize="100" class="container">
 <div *cdkVirtualFor="let l of numbers" class="display-num"> 
     {{l}}
 </div>
-</cdk-virtual-scroll-viewport>
+</cdk-virtual-scroll-viewport> -->
