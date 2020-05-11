@@ -1,26 +1,161 @@
 <mat-toolbar class="navbar" color="primary"> 
-  <div> Realogy Title Group - HelpDesk System</div>
-  <div>
-    <span>
-      <mat-icon matListIcon> home </mat-icon> 
-      Home 
-    </span>
-    <span> 
-      About
+<div> Realogy Title Group - Help Desk System</div>
+<div>
+  <span>
+    <mat-icon matListIcon> home </mat-icon> 
+    Home 
   </span>
-    <span> Service</span>
-   </div>
-   </mat-toolbar>  
+  <span> 
+    About 
+</span>
+  <span> FAQ </span>
+ </div>
+ </mat-toolbar>  
+
+ <div class="mat-title" align="center"> Resource Access Request </div>
+
+<div>
+<span>
+  <mat-form-field floatLabel="auto" appearance="outline" color="primary">
+    <mat-label> Requester Id </mat-label>
+    <input type="text" matInput required [formControl]="myControl" 
+            [errorStateMatcher]="matcher" spellcheck="false"/>
+      <mat-error *ngIf="myControl.hasError('required')">
+      Requester Id is <strong> mandatory </strong> field
+      </mat-error>
+      <mat-error *ngIf="myControl.hasError('minlength')">
+      Minimum length of 6 characters
+      </mat-error>
+      <mat-error *ngIf="myControl.hasError('pattern')">
+        Requester Id is <strong> alphabetic </strong> field
+        </mat-error>
+        
+      <mat-hint align="end"> Enter login/ssnet ID</mat-hint>
+    </mat-form-field>
+</span>
+
+<span>
+  <mat-form-field floatLabel="auto" appearance="outline" color="primary">
+    <mat-label> Requester Name </mat-label>
+    <input type="text" matInput placeholder='Ex.Sriram' [formControl]="nameControl" 
+            [errorStateMatcher]="matcher" spellcheck="false"/>
+      <mat-error *ngIf="nameControl.hasError('maxlength')" color="warn">
+      Cannot be greater than 10 char
+      </mat-error>
+      <mat-hint align="end"> Enter Name</mat-hint>
+    </mat-form-field>
+</span>
+
+<span>
+  <mat-form-field appearance="outline" color="primary" >
+    <mat-label> App Info</mat-label>
+    <mat-select required #matSelect> 
+      <mat-option value="iClosings">iClosings </mat-option>
+      <mat-option value="KLO">KLO Group </mat-option>
+      <mat-option value="IT Portal">IT Portal </mat-option>
+      <mat-option value="vendor management">Vendor Management</mat-option>
+      <mat-option value="sa.com">SA.COM</mat-option>
+      <mat-option default value="HB and HB+">HomeBase & HomeBase+</mat-option>
+      <mat-option value="others">Others </mat-option>
+      <mat-option value="async and msgbus">Async & MsgBus </mat-option>
+      <mat-option value="Title!Snap">Title!Snap</mat-option>
+      <mat-option value="TRUE">TRUE </mat-option>
+      <mat-option value="CORE">CORE </mat-option>
+      <mat-option value="RPA">RPA </mat-option>
+      <mat-option value="Core COnnect">Core Connect </mat-option>
+      <mat-option value="$AFE">$AFE </mat-option>
+      <mat-option value="Go2Agent">Go2Agent </mat-option>
+      <mat-option value="SiteFinity">SiteFinity</mat-option>
+      <mat-option value="FastTool">Fast Tool</mat-option>
+      <mat-option value="RPA Forms">RPA Forms</mat-option>
+    </mat-select>
+    <mat-hint align="end">Enter application where access needed </mat-hint>
+  </mat-form-field>
+</span>
+<span>
+  <mat-form-field appearance="outline" color="primary" >
+    <mat-label> Role Requested </mat-label>
+    <mat-select required #matSelect> 
+      <mat-option value="admin">TFS Admin </mat-option>
+      <mat-option value="reader">TFS Reader </mat-option>
+      <mat-option value="build admin">TFS Build Admin </mat-option>
+      <mat-option value="branch delete">TFS Branch Delete </mat-option>
+      <mat-option value="revoke">TFS Revoke Access </mat-option>
+      <mat-option default value="contributor">TFS Contributor </mat-option>
+      <mat-option value="others">Others </mat-option>
+    </mat-select>
+    <mat-hint align="end">Enter preferred role </mat-hint>
+  </mat-form-field>
+</span>
+
+<!-- <span>
+  <button mat-raised-button (click)="showSnackBar('Item Deleted','Dismiss')"> Open Snack Bar</button>
+</span>
+
+<span>
+  <button mat-raised-button (click)="showCustomSnackBar()"> Custom Snack Bar</button>
+</span> -->
+<span>
+  <mat-form-field appearance="outline" color="primary" >
+    <mat-label> Approver </mat-label>
+    <mat-select required #matSelect> 
+      <mat-option value="Abhijit">Abhijit Mukherjee</mat-option>
+      <mat-option value="Maryanne">Maryanne Frake </mat-option>
+      <mat-option value="Shane">Shane Kushin </mat-option>
+      <mat-option value="Vrushali">Vrushali Dixit </mat-option>
+    </mat-select>
+    <mat-hint align="end">Select approver </mat-hint>
+  </mat-form-field>
+</span>
+
+</div>
+<!--<button mat-raised-button (click)="openDialog()"> Open Dialog</button> -->
+
+<mat-form-field appearance="outline">
+  <mat-label> Filter</mat-label>
+  <input (keyup)="applyFilter($event.target.value)" matInput placeholder="ex. Ox" >
+  <mat-hint> Start typing to filter the result</mat-hint>
+</mat-form-field>
+<div class="mat-elevation-z8">  
+<!-- in order to enable sorting, adding the matSort directive to the mat-table definition
+      and the mat-sort-header to each header that you need sorted -->
+<mat-table [dataSource]="dataSource" matSort >
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>  No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
+  <!-- displayedColumns tells what columns to display, refer component.ts
+       mat-row displays actual row, we need to say row and what columns to include for each row-->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row (click)="displayRow(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+</mat-paginator>
+</div>
 
 
-<mat-grid-list cols="2" rowHeight="fit" style="height:200px">
-  <mat-grid-tile> 
-    <app-leftpanel></app-leftpanel>
-  </mat-grid-tile>
-  <mat-grid-tile> Right Panel
-    <app-rightpanel></app-rightpanel>
-  </mat-grid-tile>
-  </mat-grid-list>
-
-
-
+<!-- <cdk-virtual-scroll-viewport itemSize="100" class="container">
+<div *cdkVirtualFor="let l of numbers" class="display-num"> 
+    {{l}}
+</div>
+</cdk-virtual-scroll-viewport> -->
