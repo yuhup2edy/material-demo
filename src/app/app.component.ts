@@ -94,5 +94,9 @@ export class AppComponent implements OnInit, AfterViewInit
   
  // all form definitions & validations end here
 
+ process()
+ {
+   console.log(this.rarApprover.value);
+ }
 } // close of the AppComponent Class
 
