@@ -16,6 +16,121 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+export interface rarData {
+  
+  rarData_TicketId      : number;
+  rarData_RequesterId   : string;
+  rarData_Application   : string;
+  rarData_Role          : string;
+  rarData_Approver      : string;
+  rarData_NeedBy        : string;
+  rarData_UserList      : string;
+  rarData_Status        : string;
+  }
+
+const ELEMENT_DATA: rarData[] = [
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1001, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'ICD', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Abhijit Mukherjee', 
+    rarData_NeedBy : '05/19/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Pending'
+   },
+   { 
+    rarData_TicketId : 1008, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'CORE', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '06/01/2020',
+    rarData_UserList : 'Vithya and Kumar JD', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1109, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'TitleSnap', 
+    rarData_Role: 'Administrator',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '04/19/2020',
+    rarData_UserList : 'Bala, Venkat and ', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+   { 
+    rarData_TicketId : 1000, 
+    rarData_RequesterId: 'venktS', 
+    rarData_Application: 'KLO', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne Frake', 
+    rarData_NeedBy : '05/15/2020',
+    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Completed'
+   },
+ ];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +144,7 @@ export class AppComponent implements OnInit, AfterViewInit
   minDate  = new Date();
   skipDay : number;
   dateEvents: string[] = [];
-
+  
   
   ngOnInit()
   {
@@ -94,9 +209,10 @@ export class AppComponent implements OnInit, AfterViewInit
   
  // all form definitions & validations end here
 
- process()
+ processRARSubmission()
  {
    console.log(this.rarApprover.value);
  }
+
 } // close of the AppComponent Class
 

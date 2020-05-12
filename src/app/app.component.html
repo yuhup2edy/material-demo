@@ -12,7 +12,7 @@
  </div>
  </mat-toolbar>  
 
-
+ <form novalidate (submit)="processRARSubmission()">
 <mat-accordion multi="true" >
 <mat-expansion-panel>
   <mat-expansion-panel-header>
@@ -23,7 +23,8 @@
       User Entry Screen
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <mat-action-row> 
+  <mat-action-row>
+    
     <div>
       <span>
         <mat-form-field floatLabel="auto" appearance="outline" color="primary">
@@ -52,10 +53,10 @@
             <mat-option value="KLO">KLO Group </mat-option>
             <mat-option value="IT Portal">IT Portal </mat-option>
             <mat-option value="vendor management">Vendor Management</mat-option>
-            <mat-option value="sa.com">SA.COM</mat-option>
+            <mat-option value="SA.com">SA.COM</mat-option>
             <mat-option default value="HB and HB+">HomeBase & HomeBase+</mat-option>
             <mat-option value="others">Others </mat-option>
-            <mat-option value="async and msgbus">Async & MsgBus </mat-option>
+            <mat-option value="Async & Msgbus">Async & MsgBus </mat-option>
             <mat-option value="Title!Snap">Title!Snap</mat-option>
             <mat-option value="TRUE">TRUE </mat-option>
             <mat-option value="CORE">CORE </mat-option>
@@ -78,13 +79,13 @@
                       [formControl]="rarRole" 
                       [errorStateMatcher]="validator"> 
             <mat-option >--</mat-option>
-            <mat-option value="admin">TFS Admin </mat-option>
-            <mat-option value="reader">TFS Reader </mat-option>
-            <mat-option value="build admin">TFS Build Admin </mat-option>
-            <mat-option value="branch delete">TFS Branch Delete </mat-option>
-            <mat-option value="revoke">TFS Revoke Access </mat-option>
-            <mat-option default value="contributor">TFS Contributor </mat-option>
-            <mat-option value="others">Others </mat-option>
+            <mat-option value="Admin">TFS Admin </mat-option>
+            <mat-option value="Reader">TFS Reader </mat-option>
+            <mat-option value="Build admin">TFS Build Admin </mat-option>
+            <mat-option value="Branch delete">TFS Branch Delete </mat-option>
+            <mat-option value="Revoke">TFS Revoke Access </mat-option>
+            <mat-option default value="Contributor">TFS Contributor </mat-option>
+            <mat-option value="Others">Others </mat-option>
           </mat-select>
           <mat-error *ngIf="rarRole.hasError('required')">Must select role</mat-error>
           <mat-hint align="end">Preferred role</mat-hint>
@@ -99,10 +100,10 @@
                       [formControl]="rarApprover" 
                       [errorStateMatcher]="validator"> 
             <mat-option >--</mat-option>
-            <mat-option value="Abhijit">Abhijit Mukherjee</mat-option>
-            <mat-option value="Maryanne">Maryanne Frake </mat-option>
-            <mat-option value="Shane">Shane Kushin </mat-option>
-            <mat-option value="Vrushali">Vrushali Dixit </mat-option>
+            <mat-option value="Abhijit Mukherjee">Abhijit Mukherjee</mat-option>
+            <mat-option value="Maryanne Frake">Maryanne Frake </mat-option>
+            <mat-option value="Shane Kushin">Shane Kushin </mat-option>
+            <mat-option value="Vrushali Dixit">Vrushali Dixit </mat-option>
           </mat-select>
           <mat-error *ngIf="rarApprover.hasError('required')">Must select approver</mat-error>
           <mat-hint align="end">Select approver </mat-hint>
@@ -140,9 +141,10 @@
                             rarRole.hasError('required')        ||
                             rarApprover.hasError('required')    ||
                             rarNeedByDate.hasError('required')"
-                            mat-raised-button class="button-class" onSubmit="process()"> Submit</button>
+                            mat-raised-button class="button-class" type="submit" > Submit</button>
         </span>
       </div>
+   
   </mat-action-row>
 </mat-expansion-panel>
 
@@ -160,3 +162,4 @@
   </mat-action-row>
 </mat-expansion-panel>
 </mat-accordion>
+</form>  
