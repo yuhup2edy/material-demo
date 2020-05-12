@@ -13,7 +13,6 @@
  </mat-toolbar>  
 
 
-
 <mat-accordion multi="true" >
 <mat-expansion-panel>
   <mat-expansion-panel-header>
@@ -33,18 +32,22 @@
                  matInput 
                  required 
                  spellcheck="false"
-                 [formControl]="rarrequesterId"
+                 [formControl]="rarRequesterId"
                  [errorStateMatcher]="validator"/>
-          <mat-error *ngIf="rarrequesterId.hasError('required')">Blanks Not Accepted </mat-error>
-          <mat-error *ngIf="rarrequesterId.hasError('minlength')"> Min Len is 6 char </mat-error>
-          <mat-error *ngIf="rarrequesterId.hasError('pattern')"> Alphabetic Only </mat-error>
+          <mat-error *ngIf="rarRequesterId.hasError('required')">Blanks Not Accepted </mat-error>
+          <mat-error *ngIf="rarRequesterId.hasError('minlength') || rarRequesterId.hasError('pattern')" > 
+                    Alphabets only; 6 char min </mat-error>
+        <!--  <mat-error *ngIf="rarrequesterId.hasError('pattern')"> Alphabetic Only </mat-error> -->
           <mat-hint align="end"> Enter login/ssnet ID</mat-hint>
           </mat-form-field>
       </span>
       <span>
         <mat-form-field appearance="outline" color="primary" >
           <mat-label> App Info</mat-label>
-          <mat-select required #matSelectApplication> 
+          <mat-select required #matSelectApplication 
+                      [formControl]="rarApplication" 
+                      [errorStateMatcher]="validator"> 
+            <mat-option> -- </mat-option>
             <mat-option value="iClosings">iClosings </mat-option>
             <mat-option value="KLO">KLO Group </mat-option>
             <mat-option value="IT Portal">IT Portal </mat-option>
@@ -64,13 +67,17 @@
             <mat-option value="FastTool">Fast Tool</mat-option>
             <mat-option value="RPA Forms">RPA Forms</mat-option>
           </mat-select>
+          <mat-error *ngIf="rarApplication.hasError('required')">Must select app</mat-error>
           <mat-hint align="end">Select application </mat-hint>
         </mat-form-field>
       </span>
       <span>
         <mat-form-field appearance="outline" color="primary">
           <mat-label> Role </mat-label>
-          <mat-select  required #matSelectRole> 
+          <mat-select  required #matSelectRole 
+                      [formControl]="rarRole" 
+                      [errorStateMatcher]="validator"> 
+            <mat-option >--</mat-option>
             <mat-option value="admin">TFS Admin </mat-option>
             <mat-option value="reader">TFS Reader </mat-option>
             <mat-option value="build admin">TFS Build Admin </mat-option>
@@ -79,7 +86,8 @@
             <mat-option default value="contributor">TFS Contributor </mat-option>
             <mat-option value="others">Others </mat-option>
           </mat-select>
-          <mat-hint align="end">Preferred role </mat-hint>
+          <mat-error *ngIf="rarRole.hasError('required')">Must select role</mat-error>
+          <mat-hint align="end">Preferred role</mat-hint>
         </mat-form-field>
       </span>
       </div>
@@ -87,12 +95,16 @@
       <span>
         <mat-form-field appearance="outline" color="primary" >
           <mat-label> Approver </mat-label>
-          <mat-select required #matSelectApprover> 
+          <mat-select required #matSelectApprover 
+                      [formControl]="rarApprover" 
+                      [errorStateMatcher]="validator"> 
+            <mat-option >--</mat-option>
             <mat-option value="Abhijit">Abhijit Mukherjee</mat-option>
             <mat-option value="Maryanne">Maryanne Frake </mat-option>
             <mat-option value="Shane">Shane Kushin </mat-option>
             <mat-option value="Vrushali">Vrushali Dixit </mat-option>
           </mat-select>
+          <mat-error *ngIf="rarApprover.hasError('required')">Must select approver</mat-error>
           <mat-hint align="end">Select approver </mat-hint>
         </mat-form-field>
       </span>
@@ -100,22 +112,37 @@
         <mat-form-field appearance="outline" color="primary">
           <mat-label>Need By Date</mat-label>
          <!-- <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate"> -->
-         <input matInput required [matDatepicker]="datepicker" [min]="minDate" [matDatepickerFilter]="dateFilter"> 
-         <!-- dateFilter does not allow you to select weekends -->
+         <input matInput required [matDatepicker]="datepicker" 
+                [min]="minDate" 
+                [matDatepickerFilter]="dateFilter"
+                [formControl]="rarNeedByDate"
+                [errorStateMatcher]="validator">
+                <!-- dateFilter does not allow you to select weekends -->
           <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle> 
           <mat-datepicker #datepicker></mat-datepicker>
+          <mat-error *ngIf="rarNeedByDate.hasError('required')">Must select need by; default is +3 days</mat-error>
          </mat-form-field>
       </span>
       <span>
         <mat-form-field floatLabel="auto" appearance="outline" color="primary">
           <mat-label> Users List </mat-label>
-          <input type="text" matInput required spellcheck="false"/>
+          <input type="text" matInput required spellcheck="false" 
+                [formControl]="rarUsersList"
+                [errorStateMatcher]="validator"/>
             <mat-hint align="end"> Comma separated ssnet</mat-hint>
+            <mat-error *ngIf="rarUsersList.hasError('required')">Provide a set of users </mat-error>
           </mat-form-field>
-        <button [disabled]="false" mat-raised-button class="button-class"> Submit</button>
-      </span>
+        <button [disabled]="rarUsersList.hasError('required')   || 
+                            rarRequesterId.hasError('required') || 
+                            rarRequesterId.hasError('minlength') || 
+                            rarRequesterId.hasError('pattern')  ||
+                            rarApplication.hasError('required')  || 
+                            rarRole.hasError('required')        ||
+                            rarApprover.hasError('required')    ||
+                            rarNeedByDate.hasError('required')"
+                            mat-raised-button class="button-class"> Submit</button>
+        </span>
       </div>
-      
   </mat-action-row>
 </mat-expansion-panel>
 
