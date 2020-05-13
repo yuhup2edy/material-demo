@@ -41,6 +41,8 @@ export class AppComponent implements OnInit, AfterViewInit
   currDate = new Date();
   minDate  = new Date();
   skipDay : number;
+  touchDisable : boolean;
+  //resetDisable : boolean;
   
   // displayedColumns: string[] = ['Request Id', 'Requester Id', 'Application', 'Role', 
   //                               'Approver', 'Need By', 'Remarks', 'Status'];
@@ -158,10 +160,15 @@ export class AppComponent implements OnInit, AfterViewInit
     ];
   
     dataSource = new MatTableDataSource(this.DISPLAY_VIEW);
+    //rar_newRequestEntry : rarData;
+    i : number;
+
+    //rar_newEntry. = 
   
   constructor(private snackBar : MatSnackBar)
   {
-    
+   this.touchDisable = false; 
+   //this.resetDisable = false;
   }
   ngOnInit()
   {
@@ -181,16 +188,17 @@ export class AppComponent implements OnInit, AfterViewInit
     //dataSource = ELEMENT_DATA; ==> only for standar display
     // when you need sorting, filtering, pagination etc use the instance of the mat table data source 
     
-    this.dataSource.sort = this.sort1;
-    //console.log(this.DISPLAY_VIEW[this.DISPLAY_VIEW.length-1]);
-    
    }
 
   ngAfterViewInit()
   {
   
+    this.dataSource.sort = this.sort1; // takes care of sorting 
+    this.sort1.sortChange.subscribe(() => {
+      console.log(1);
+      this.dataSource.sort = this.sort1;
+    });
     this.dataSource.paginator = this.paginate1;   // takes care of the pagination
-    this.sort1.sortChange.subscribe(() => this.paginate1.pageIndex = 0 );
     //this.sort1.sortChange.subscribe(() => this.paginator.pageIndex = 0 ); 
    }
 
@@ -237,15 +245,40 @@ export class AppComponent implements OnInit, AfterViewInit
  processRARSubmission()
  {
 
-  let snackBarRef = this.snackBar.open('Request # Received','Dismiss',{duration:9000});
-  //let snackBarRef = this.snackBar.open('Request # Received','Dismiss');
-  //console.log(this.DISPLAY_VIEW.length);
+  this.i = this.DISPLAY_VIEW[this.DISPLAY_VIEW.length - 1 ].rarData_RequestId;
+  //this.i = this.DISPLAY_VIEW.length;
+  //this.i = this.i - 1;
+
+
+  this.i = this.i + 1;
+  this.DISPLAY_VIEW.push(
+    {
+      rarData_RequestId   : this.i,
+      rarData_RequesterId : this.rarRequesterId.value,
+      rarData_Application : this.rarApplication.value,
+      rarData_Role        : this.rarRole.value,
+      rarData_Approver    : this.rarApprover.value,
+      rarData_NeedBy      : new Date(this.rarNeedByDate.value).toString(),
+      rarData_UserList    : this.rarUsersList.value,
+      rarData_Status      : 'Pending'
+    }
+  );
+
+    let snackBarRef = this.snackBar.open('Request # ' + this.i + ' Received','Dismiss',{duration:9000});
+  //this.resetDisable = false;
+  this.touchDisable = true;
+
+  //   snackBarRef.afterDismissed().subscribe(
+  //   ()=> {
+  //     this.touchDisable = true;
+      
+  //     //this.rarRequesterId.valid;
+  //     //this.rarRequesterId.setValue('');  
+  //   })
+   }
+
   
-  //this.DISPLAY_VIEW.push([
-
-  //])
- }
-
+  
 // paging, sorting, filtering operations 
 
 applyFilter(filterText : string)
