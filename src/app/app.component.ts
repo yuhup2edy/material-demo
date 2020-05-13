@@ -18,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export interface rarData {
   
-  rarData_TicketId      : number;
+  rarData_RequestId      : number;
   rarData_RequesterId   : string;
   rarData_Application   : string;
   rarData_Role          : string;
@@ -28,105 +28,105 @@ export interface rarData {
   rarData_Status        : string;
   }
 
-const ELEMENT_DATA: rarData[] = [
+const DISPLAY_VIEW: rarData[] = [
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
-    rarData_Status : 'Completed'
+    rarData_RequestId      : 1000, 
+    rarData_RequesterId   : 'venkatS', 
+    rarData_Application   : 'KLO', 
+    rarData_Role          : 'Contributor',
+    rarData_Approver      : 'Maryanne', 
+    rarData_NeedBy        : '05/15/2020',
+    rarData_UserList      : 'KumarPav,VenkatSx', 
+    rarData_Status        : 'Completed'
    },
    { 
-    rarData_TicketId : 1001, 
-    rarData_RequesterId: 'venktS', 
+    rarData_RequestId : 1001, 
+    rarData_RequesterId: 'venkatS', 
     rarData_Application: 'ICD', 
     rarData_Role: 'Contributor',
-    rarData_Approver : 'Abhijit Mukherjee', 
+    rarData_Approver : 'Abhijit', 
     rarData_NeedBy : '05/19/2020',
     rarData_UserList : 'KumarPav,VenkatSx', 
     rarData_Status : 'Pending'
    },
    { 
-    rarData_TicketId : 1008, 
-    rarData_RequesterId: 'venktS', 
+    rarData_RequestId : 1008, 
+    rarData_RequesterId: 'venkatS', 
     rarData_Application: 'CORE', 
     rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
+    rarData_Approver : 'Maryanne', 
     rarData_NeedBy : '06/01/2020',
     rarData_UserList : 'Vithya and Kumar JD', 
     rarData_Status : 'Completed'
    },
    { 
-    rarData_TicketId : 1109, 
-    rarData_RequesterId: 'venktS', 
+    rarData_RequestId : 1109, 
+    rarData_RequesterId: 'venkatS', 
     rarData_Application: 'TitleSnap', 
-    rarData_Role: 'Administrator',
-    rarData_Approver : 'Maryanne Frake', 
+    rarData_Role: 'Admin',
+    rarData_Approver : 'Maryanne', 
     rarData_NeedBy : '04/19/2020',
-    rarData_UserList : 'Bala, Venkat and ', 
+    rarData_UserList : 'Bala, Venkat and Sushi', 
     rarData_Status : 'Completed'
    },
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
+    rarData_RequestId : 1247, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: '$AFE', 
+    rarData_Role: 'Build',
+    rarData_Approver : 'Mark', 
+    rarData_NeedBy : '02/01/2020',
     rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Status : 'Pending Clarification'
+   },
+   { 
+    rarData_RequestId : 1399, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: 'HB & HB+', 
+    rarData_Role: 'Contributor',
+    rarData_Approver : 'Maryanne', 
+    rarData_NeedBy : '12/31/2019',
+    rarData_UserList : 'Vithya needs view permissiong (JayaraV)', 
     rarData_Status : 'Completed'
    },
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_RequestId : 1411, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: 'RPA', 
+    rarData_Role: 'Reader',
+    rarData_Approver : 'Vrushali Dixit', 
+    rarData_NeedBy : '05/13/2020',
+    rarData_UserList : 'Venkat, Bala, Madhu need access reprovisioned', 
     rarData_Status : 'Completed'
    },
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
+    rarData_RequestId : 20903, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: 'Messaging Automation', 
     rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_Approver : 'Maryanne', 
+    rarData_NeedBy : '01/12/2020',
+    rarData_UserList : 'Offshore CS team needs access', 
     rarData_Status : 'Completed'
    },
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
-    rarData_Status : 'Completed'
+    rarData_RequestId : 20141, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: 'Others', 
+    rarData_Role: 'Admin',
+    rarData_Approver : 'Abhijit', 
+    rarData_NeedBy : '07/04/2020',
+    rarData_UserList : 'need access to multiple apps', 
+    rarData_Status : 'Pending Clarification'
    },
    { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
-    rarData_Status : 'Completed'
-   },
-   { 
-    rarData_TicketId : 1000, 
-    rarData_RequesterId: 'venktS', 
-    rarData_Application: 'KLO', 
-    rarData_Role: 'Contributor',
-    rarData_Approver : 'Maryanne Frake', 
-    rarData_NeedBy : '05/15/2020',
-    rarData_UserList : 'KumarPav,VenkatSx', 
+    rarData_RequestId : 21109, 
+    rarData_RequesterId: 'venkatS', 
+    rarData_Application: 'Client Server', 
+    rarData_Role: 'Administtator',
+    rarData_Approver : 'Maryanne', 
+    rarData_NeedBy : '03/17/2020',
+    rarData_UserList : 'Shrivyas needs admin access to manage DevOps; Bob Pron approved', 
     rarData_Status : 'Completed'
    },
  ];
@@ -145,7 +145,25 @@ export class AppComponent implements OnInit, AfterViewInit
   skipDay : number;
   dateEvents: string[] = [];
   
+  // displayedColumns: string[] = ['Request Id', 'Requester Id', 'Application', 'Role', 
+  //                               'Approver', 'Need By', 'Remarks', 'Status'];
+
+  displayedColumns: string[] = ['Request Id', 'Requester Id', 'Application', 'Role', 
+                                 'Approver', 'Need By', 'Status'];
+
+  filteredOptions : Observable<string[]>;
   
+  //dataSource = ELEMENT_DATA; ==> only for standar display
+  // when you need sorting, filtering, pagination etc use the instance of the mat table data source 
+  dataSource = new MatTableDataSource(DISPLAY_VIEW);
+
+  @ViewChild(MatSort) sort1 : MatSort; //remember to use sort in the afterview init becuase child as to be loaded
+  @ViewChild(MatPaginator) paginate1 : MatPaginator; // this is to paginate the table; also position on ngAgterviewInit
+  
+  constructor(private snackBar : MatSnackBar)
+  {
+
+  }
   ngOnInit()
   {
     //minDate returns today + 3 days as default selector for need by ; adjust for sat  & sun
@@ -162,10 +180,13 @@ export class AppComponent implements OnInit, AfterViewInit
       this.minDate = new Date(this.currDate.getTime() + 5 * (1000 * 60 * 60 * 24));
     } 
 
-  }
+   }
 
   ngAfterViewInit()
   {
+  
+    this.dataSource.paginator = this.paginate1;   // takes care of the pagination
+    this.dataSource.sort = this.sort1;
 
   }
 
@@ -203,6 +224,8 @@ export class AppComponent implements OnInit, AfterViewInit
     Validators.required,
   ]);
 
+  
+
   // calling the global validator
   
   validator = new MyErrorStateMatcher();
@@ -211,8 +234,19 @@ export class AppComponent implements OnInit, AfterViewInit
 
  processRARSubmission()
  {
-   console.log(this.rarApprover.value);
+   //console.log(DISPLAY_VIEW.length);
+  //let snackBarRef = this.snackBar.open('Request # Received','Dismiss',{duration:2000});
+  let snackBarRef = this.snackBar.open('Request # Received','Dismiss');
+   
  }
+
+// paging, sorting, filtering operations 
+
+applyFilter(filterText : string)
+{
+    this.dataSource.filter = filterText.trim().toLowerCase();
+}
+
 
 } // close of the AppComponent Class
 

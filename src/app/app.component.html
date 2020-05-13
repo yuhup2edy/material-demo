@@ -158,7 +158,67 @@
       Status of Requests 
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <mat-action-row> 
+  <mat-action-row align="before"> 
+    <div class="mat-elevation-z8">
+    <span>  
+    <mat-form-field appearance="outline">
+      <mat-label> Filter Results </mat-label>
+      <input (keyup)="applyFilter($event.target.value)" matInput placeholder="ex. Fr" >
+      <mat-hint> Start typing to filter the result</mat-hint>
+    </mat-form-field>
+  </span>  
+  <br>
+  <span>  
+    <!-- in order to enable sorting, adding the matSort directive to the mat-table definition
+    and the mat-sort-header to each header that you need sorted -->
+    <mat-table [dataSource]="dataSource" matSort >
+    <ng-container matColumnDef="Request Id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Request Id. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.rarData_RequestId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Requester Id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Requester </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_RequesterId}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Application">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Application </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_Application}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Role">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Role Requested </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_Role}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Approver">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Approver </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_Approver}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Need By">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Need By </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_NeedBy}} </mat-cell>
+      </ng-container>
+      <!--<ng-container matColumnDef="Remarks">
+       <mat-header-cell *matHeaderCellDef mat-sort-header> Remarks </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_UserList}} </mat-cell>
+      </ng-container> -->
+      <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Remarks </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rarData_Status}} </mat-cell>
+      </ng-container>
+       
+    <!-- displayedColumns tells what columns to display, refer component.ts
+    mat-row displays actual row, we need to say row and what columns to include for each row-->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+  </mat-table>
+</span> 
+<span>
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+    </mat-paginator>
+  </span>
+  </div> 
+
   </mat-action-row>
 </mat-expansion-panel>
 </mat-accordion>
