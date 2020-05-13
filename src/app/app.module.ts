@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // angular imports are now part of it's own module, keeping the code clean. import into the imports: [] below
 import { MaterialModule } from './material/material.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatSortModule,
+    MatTableModule,
     ScrollingModule
  ],
   providers: [],

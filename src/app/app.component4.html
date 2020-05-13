@@ -12,7 +12,7 @@
  </div>
  </mat-toolbar>  
 
-<form novalidate (submit)="processRARSubmission()">
+ <form novalidate (submit)="processRARSubmission()">
 <mat-accordion multi="true" >
 <mat-expansion-panel>
   <mat-expansion-panel-header>
@@ -145,24 +145,30 @@
         </span>
       </div>
    
-
   </mat-action-row>
 </mat-expansion-panel>
-</mat-accordion>
-</form>  
 
-<br><br>
 
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Resource Access Request (RAR)
+    </mat-panel-title>
+    <mat-panel-description>
+      Status of Requests 
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-action-row> 
     <div class="mat-elevation-z8">
-    <span> <mat-form-field appearance="outline">
+    <span>  
+    <mat-form-field appearance="outline">
       <mat-label> Filter Results </mat-label>
       <input (keyup)="applyFilter($event.target.value)" matInput placeholder="ex. Fr" >
       <mat-hint> Start typing to filter the result</mat-hint>
     </mat-form-field>
-  </span>
-  <span> 
-   <div align="center" class="mat-subheading-2"> Status of requests </div>
-  </span> <br>
+  </span>  
+  <br>
+  <span>  
     <!-- in order to enable sorting, adding the matSort directive to the mat-table definition
     and the mat-sort-header to each header that you need sorted -->
     <mat-table [dataSource]="dataSource" matSort >
@@ -196,7 +202,7 @@
       <mat-cell *matCellDef="let element"> {{element.rarData_UserList}} </mat-cell>
       </ng-container> -->
       <ng-container matColumnDef="Status">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Remarks </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.rarData_Status}} </mat-cell>
       </ng-container>
        
@@ -206,6 +212,14 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   
   </mat-table>
+</span> 
+<span>
+    <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+    </mat-paginator>
+  </span>
+  </div> 
 
-  <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
-  </mat-paginator>
+  </mat-action-row>
+</mat-expansion-panel>
+</mat-accordion>
+</form>  
