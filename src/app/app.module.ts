@@ -9,6 +9,8 @@ import { MaterialModule } from './material/material.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { DatePipe } from '@angular/common';
+//import { isDate } from 'util';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
     ScrollingModule
  ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

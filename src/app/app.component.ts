@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -29,6 +30,8 @@ export interface rarData {
   }
 
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -41,7 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit
   currDate = new Date();
   minDate  = new Date();
   skipDay : number;
-  touchDisable : boolean;
+  disableSubmit : boolean;
   //resetDisable : boolean;
   
   // displayedColumns: string[] = ['Request Id', 'Requester Id', 'Application', 'Role', 
@@ -151,7 +154,7 @@ export class AppComponent implements OnInit, AfterViewInit
        rarData_RequestId : 21109, 
        rarData_RequesterId: 'venkatS', 
        rarData_Application: 'Client Server', 
-       rarData_Role: 'Administtator',
+       rarData_Role: 'Admini',
        rarData_Approver : 'Maryanne', 
        rarData_NeedBy : '03/17/2020',
        rarData_UserList : 'Shrivyas needs admin access to manage DevOps; Bob Pron approved', 
@@ -165,9 +168,9 @@ export class AppComponent implements OnInit, AfterViewInit
 
     //rar_newEntry. = 
   
-  constructor(private snackBar : MatSnackBar)
+  constructor(private snackBar : MatSnackBar, private _date : DatePipe)
   {
-   this.touchDisable = false; 
+   this.disableSubmit = false; 
    //this.resetDisable = false;
   }
   ngOnInit()
@@ -249,7 +252,6 @@ export class AppComponent implements OnInit, AfterViewInit
   //this.i = this.DISPLAY_VIEW.length;
   //this.i = this.i - 1;
 
-
   this.i = this.i + 1;
   this.DISPLAY_VIEW.push(
     {
@@ -258,7 +260,8 @@ export class AppComponent implements OnInit, AfterViewInit
       rarData_Application : this.rarApplication.value,
       rarData_Role        : this.rarRole.value,
       rarData_Approver    : this.rarApprover.value,
-      rarData_NeedBy      : new Date(this.rarNeedByDate.value).toString(),
+      //rarData_NeedBy      : new Date(this.rarNeedByDate.value).toString(),
+      rarData_NeedBy      : this._date.transform(this.rarNeedByDate.value,'MM/dd/yyyy'),
       rarData_UserList    : this.rarUsersList.value,
       rarData_Status      : 'Pending'
     }
@@ -266,19 +269,14 @@ export class AppComponent implements OnInit, AfterViewInit
 
     let snackBarRef = this.snackBar.open('Request # ' + this.i + ' Received','Dismiss',{duration:9000});
   //this.resetDisable = false;
-  this.touchDisable = true;
+  this.disableSubmit = true;
 
   //   snackBarRef.afterDismissed().subscribe(
   //   ()=> {
-  //     this.touchDisable = true;
+  //     this.disableSubmit = true;
       
-  //     //this.rarRequesterId.valid;
-  //     //this.rarRequesterId.setValue('');  
-  //   })
-   }
+ }
 
-  
-  
 // paging, sorting, filtering operations 
 
 applyFilter(filterText : string)
